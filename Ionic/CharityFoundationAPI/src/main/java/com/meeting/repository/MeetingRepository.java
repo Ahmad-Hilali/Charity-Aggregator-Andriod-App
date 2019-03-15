@@ -23,4 +23,8 @@ public interface MeetingRepository extends JpaRepository<Meeting, Integer> {
 	@Transactional
 	@Query(value="select * from meeting where user_id=:uid", nativeQuery=true)
 	List<Meeting> getAllMeetingsbyUserId(@Param("uid")int uid);
+	
+	@Transactional
+	@Query(value="select * from charity where category=:category", nativeQuery=true)
+	List<Meeting> getTrustByCategory(@Param("category")String category);
 }
